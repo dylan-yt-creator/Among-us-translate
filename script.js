@@ -1,9 +1,10 @@
 const dictionary = {
-  "hello": "zarn",
-  "world": "mok",
-  "i": "ka",
-  "love": "zir",
-  "you": "tan"
+  "I": "meep",
+  "you": "yo",
+  "sus": "shade",
+  "kill": "zap",
+  "report": "ping",
+  "emergency meeting": "big ping"
 };
 
 function translateText() {
