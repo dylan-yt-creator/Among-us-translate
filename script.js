@@ -31,7 +31,8 @@ function translateText() {
     "call emergency meeting": "big ping now",
     "let's vote": "big ping now",
     "sabotaged reactor": "reactor glitch",
-    "sabotaged o2": "o2 glitch"
+    "sabotaged o2": "o2 glitch",
+    "hello": "meep hello"
   };
 
   for (let phrase in phrases) {
