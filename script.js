@@ -32,11 +32,20 @@ const reverseDictionary = Object.fromEntries(
 let isReversed = false;
 
 function toggleDirection() {
+  const inputEl = document.getElementById("inputText");
+  const outputEl = document.getElementById("outputText");
+
+  // Swap text
+  const temp = inputEl.value;
+  inputEl.value = outputEl.innerText;
+  outputEl.innerText = temp;
+
+  // Flip direction
   isReversed = !isReversed;
+
   document.getElementById("modeLabel").innerText =
     isReversed ? "Mode: Among Us → English" : "Mode: English → Among Us";
 }
-
 function translateText() {
   let input = document.getElementById("inputText").value.toLowerCase();
 
