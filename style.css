@@ -3,6 +3,9 @@ body {
   max-width: 600px;
   margin: auto;
   padding: 20px;
+  background: white;
+  color: black;
+  transition: 0.3s;
 }
 
 textarea {
@@ -14,4 +17,28 @@ textarea {
 button {
   padding: 10px;
   cursor: pointer;
+  margin: 5px 5px 5px 0;
+}
+
+/* Controls layout */
+.controls {
+  margin-bottom: 10px;
+}
+
+/* DARK MODE */
+body.dark {
+  background: #121212;
+  color: #ffffff;
+}
+
+body.dark textarea {
+  background: #1e1e1e;
+  color: #ffffff;
+  border: 1px solid #444;
+}
+
+body.dark button {
+  background: #333;
+  color: white;
+  border: 1px solid #555;
 }
