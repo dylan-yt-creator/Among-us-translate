@@ -24,10 +24,22 @@ const dictionary = {
   "are": "ar"
 };
 
+// Reverse dictionary (auto-generated)
+const reverseDictionary = Object.fromEntries(
+  Object.entries(dictionary).map(([key, value]) => [value, key])
+);
+
+let isReversed = false;
+
+function toggleDirection() {
+  isReversed = !isReversed;
+  document.getElementById("modeLabel").innerText =
+    isReversed ? "Mode: Among Us → English" : "Mode: English → Among Us";
+}
+
 function translateText() {
   let input = document.getElementById("inputText").value.toLowerCase();
 
-  // Phrase replacements first
   const phrases = {
     "emergency meeting": "big ping",
     "call emergency meeting": "big ping now",
@@ -39,15 +51,53 @@ function translateText() {
     "hey": "meep heypeep"
   };
 
-  for (let phrase in phrases) {
-    input = input.replaceAll(phrase, phrases[phrase]);
+  const reversePhrases = Object.fromEntries(
+    Object.entries(phrases).map(([k, v]) => [v, k])
+  );
+
+  // Phrase replacement
+  if (!isReversed) {
+    for (let phrase in phrases) {
+      input = input.replaceAll(phrase, phrases[phrase]);
+    }
+  } else {
+    for (let phrase in reversePhrases) {
+      input = input.replaceAll(phrase, reversePhrases[phrase]);
+    }
   }
 
-  // Then word-by-word
+  // Word translation
+  const dict = isReversed ? reverseDictionary : dictionary;
+
   const translated = input
     .split(" ")
-    .map(word => dictionary[word] || word)
+    .map(word => dict[word] || word)
     .join(" ");
 
   document.getElementById("outputText").innerText = translated;
 }
+
+/* =========================
+   THEME SYSTEM
+========================= */
+
+function setTheme(theme) {
+  localStorage.setItem("theme", theme);
+  applyTheme(theme);
+}
+
+function applyTheme(theme) {
+  if (theme === "dark") {
+    document.body.classList.add("dark");
+  } else if (theme === "light") {
+    document.body.classList.remove("dark");
+  } else {
+    // system
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    document.body.classList.toggle("dark", prefersDark);
+  }
+}
+
+// Load saved theme
+const savedTheme = localStorage.getItem("theme") || "system";
+applyTheme(savedTheme);
