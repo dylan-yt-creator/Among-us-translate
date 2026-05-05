@@ -19,8 +19,8 @@ const dictionary = {
   "follow": "trailghost",
   "watch": "scanfade",
   "task": "fixbit",
-  "sabotage": "glitch"
-  "how": "moda"
+  "sabotage": "glitch",
+  "how": "moda",
   "are": "ar"
 };
 
