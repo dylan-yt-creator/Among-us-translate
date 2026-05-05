@@ -27,7 +27,7 @@ const dictionary = {
   "are": "ar",
   "Kyle": "ky",
   "dylan": "killer",
-  "teaming": "gangering",
+  "teaming": "gangering"
 };
 
 // Reverse dictionary
