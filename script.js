@@ -1,3 +1,6 @@
+// =========================
+// DICTIONARY
+// =========================
 const dictionary = {
   "i": "meep",
   "you": "yo",
@@ -24,45 +27,48 @@ const dictionary = {
   "are": "ar"
 };
 
-// Reverse dictionary (auto-generated)
+// Reverse dictionary
 const reverseDictionary = Object.fromEntries(
   Object.entries(dictionary).map(([key, value]) => [value, key])
 );
 
 let isReversed = false;
 
-function toggleDirection() {
-  const inputEl = document.getElementById("inputText");
-  const outputEl = document.getElementById("outputText");
+// =========================
+// PHRASES
+// =========================
+const phrases = {
+  "emergency meeting": "big ping",
+  "call emergency meeting": "big ping now",
+  "let's vote": "big ping now",
+  "sabotaged reactor": "reactor glitch",
+  "sabotaged o2": "o2 glitch",
+  "hello": "meep olleh",
+  "hi": "meep hipeep",
+  "hey": "meep heypeep"
+};
 
-  // Swap text
-  const temp = inputEl.value;
-  inputEl.value = outputEl.innerText;
-  outputEl.innerText = temp;
+const reversePhrases = Object.fromEntries(
+  Object.entries(phrases).map(([k, v]) => [v, k])
+);
 
-  // Flip direction
-  isReversed = !isReversed;
+// =========================
+// AUTO TRANSLATE (DEBOUNCE)
+// =========================
+let typingTimer;
 
-  document.getElementById("modeLabel").innerText =
-    isReversed ? "Mode: Among Us → English" : "Mode: English → Among Us";
+function handleInput() {
+  clearTimeout(typingTimer);
+  typingTimer = setTimeout(() => {
+    translateText();
+  }, 150);
 }
+
+// =========================
+// TRANSLATION
+// =========================
 function translateText() {
   let input = document.getElementById("inputText").value.toLowerCase();
-
-  const phrases = {
-    "emergency meeting": "big ping",
-    "call emergency meeting": "big ping now",
-    "let's vote": "big ping now",
-    "sabotaged reactor": "reactor glitch",
-    "sabotaged o2": "o2 glitch",
-    "hello": "meep olleh",
-    "hi": "meep hipeep",
-    "hey": "meep heypeep"
-  };
-
-  const reversePhrases = Object.fromEntries(
-    Object.entries(phrases).map(([k, v]) => [v, k])
-  );
 
   // Phrase replacement
   if (!isReversed) {
@@ -86,10 +92,31 @@ function translateText() {
   document.getElementById("outputText").innerText = translated;
 }
 
-/* =========================
-   THEME SYSTEM
-========================= */
+// =========================
+// TOGGLE DIRECTION + SWAP
+// =========================
+function toggleDirection() {
+  const inputEl = document.getElementById("inputText");
+  const outputEl = document.getElementById("outputText");
 
+  // Swap text
+  const temp = inputEl.value;
+  inputEl.value = outputEl.innerText;
+  outputEl.innerText = temp;
+
+  // Flip direction
+  isReversed = !isReversed;
+
+  document.getElementById("modeLabel").innerText =
+    isReversed ? "Mode: Among Us → English" : "Mode: English → Among Us";
+
+  // Re-translate instantly
+  translateText();
+}
+
+// =========================
+// THEME SYSTEM
+// =========================
 function setTheme(theme) {
   localStorage.setItem("theme", theme);
   applyTheme(theme);
@@ -107,6 +134,6 @@ function applyTheme(theme) {
   }
 }
 
-// Load saved theme
+// Load theme on startup
 const savedTheme = localStorage.getItem("theme") || "system";
 applyTheme(savedTheme);
