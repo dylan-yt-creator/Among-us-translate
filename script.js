@@ -26,7 +26,8 @@ const dictionary = {
   "how": "moda",
   "are": "ar",
   "Kyle": "ky",
-  "dylan": "killer"
+  "dylan": "killer",
+  "teaming": "gangering",
 };
 
 // Reverse dictionary
