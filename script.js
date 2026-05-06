@@ -29,7 +29,17 @@ const dictionary = {
   "dylan": "killer",
   "teaming": "gangering",
   "good": "gog",
-  "bad": "null"
+  "bad": "null",
+  "what": "wot",
+  "should": "shud",
+  "change": "swap",
+  "change": "amongflip",
+  "and": "n",
+  "the": "da",
+  "full": "roomfilled",
+  "text": "blahblah",
+  "except": "butnahhh",
+  "to": "2"
 };
 
 // Reverse dictionary (auto)
