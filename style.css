@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "AmongUsFont";
+  src: url("In%20your%20face,%20joffrey!.ttf") format("truetype");
+}
+
+body {
+  font-family: "AmongUsFont", Arial, sans-serif;
+}
+
 body {
   font-family: Arial;
   max-width: 600px;
