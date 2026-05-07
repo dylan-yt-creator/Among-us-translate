@@ -170,6 +170,21 @@ function applyTheme(theme) {
   }
 }
 
+function speakText() {
+  const text = document.getElementById("outputText").value;
+
+  if (!text) return;
+
+  const speech = new SpeechSynthesisUtterance(text);
+
+  // optional settings
+  speech.lang = "en-US";
+  speech.rate = 1;   // speed
+  speech.pitch = 1;  // tone
+
+  window.speechSynthesis.speak(speech);
+}
+
 // Load saved theme
 const savedTheme = localStorage.getItem("theme") || "system";
 applyTheme(savedTheme);
