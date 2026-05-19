@@ -32,8 +32,7 @@ textarea {
     border: 2px solid #666;
     background: rgba(255,255,255,0.03);
 
-    width: 90%;
-    max-width: 900px;
+    width: 100%;
 
     box-sizing: border-box;
     animation: glow 2s infinite alternate;
@@ -45,7 +44,7 @@ textarea {
 .info-panel {
     margin: 25px auto 0 auto;
 
-    width: 100%;
+    width: 300;
     padding: 15px;
 
     border: 2px solid #555;
