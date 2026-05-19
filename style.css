@@ -37,17 +37,16 @@ textarea {
 
 /* Info panel */
 .info-panel {
-    position: absolute;
-    top: 20px;
-    left: 250px;
+    margin: 20px auto 0 auto;
 
     width: 300px;
     padding: 15px;
 
-    
     border: 2px solid #555;
     background: rgba(255,255,255,0.05);
     box-shadow: 0 0 10px #00ffff44;
+
+    text-align: center;
 }
 
 @keyframes moveStars {
