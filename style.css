@@ -1,3 +1,7 @@
+* {
+    font-family: "AmongUsFont", Arial, sans-serif;
+}
+
 .button-row {
     display: flex;
     gap: 10px;
@@ -27,17 +31,19 @@ textarea {
     padding: 15px;
     border: 2px solid #666;
     background: rgba(255,255,255,0.03);
-    width: 100%;
+
+    width: 90%;
+    max-width: 900px;
+
     box-sizing: border-box;
     animation: glow 2s infinite alternate;
 
-    position: relative;
-    min-height: 200px;
+    text-align: center;
 }
 
 /* Info panel */
 .info-panel {
-    margin: 20px auto 0 auto;
+    margin: 25px auto 0 auto;
 
     width: 300px;
     padding: 15px;
@@ -76,6 +82,8 @@ textarea {
 @font-face {
   font-family: "AmongUsFont";
   src: url("In%20your%20face,%20joffrey!.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 #modeLabel {
@@ -84,17 +92,18 @@ textarea {
 }
 
 body {
-  font-family: "AmongUsFont", Arial, sans-serif;
   background: radial-gradient(circle at top, #111 0%, #000 70%);
   color: white;
   transition: 0.3s;
 
   margin: 0;
-  padding-left: 15px;
-  padding-right: 65%;
-  padding-top: 20px;
+  padding: 20px;
 
   overflow-x: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-item: center;
 }
 
 textarea {
@@ -103,7 +112,6 @@ textarea {
   margin-bottom: 10px;
   resize: none;
 
-  font-family: "AmongUsFont", Arial, sans-serif;
   font-size: 20px;
 
   padding: 10px;
@@ -115,7 +123,6 @@ button {
   background: #222;
   color: white;
   border: 1px solid #888;
-  font-family: "AmongUsFont", Arial, sans-serif;
   padding: 10px;
   cursor: pointer;
   margin: 5px 5px 5px 0;
